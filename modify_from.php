@@ -32,7 +32,7 @@
     </div>
 
     <div class="mb-3">
-    <input type="text"  class="form-control" name="date" id="date" value="<?php echo $row['date']; ?>">
+    <input type="datetime"  class="form-control" name="date" id="date" value="<?php echo $row['date']; ?>">
     </div>
 
    
