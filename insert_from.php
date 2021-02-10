@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <input type="text" class="form-control" name="date" id="date"  placeholder="เวลาเริ่มฉาย">
+                    <input type="datetime" class="form-control" name="date" id="date"  placeholder="เวลาเริ่มฉาย">
                 </div>
 
 
