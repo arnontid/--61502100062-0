@@ -12,10 +12,28 @@
 <?php 
   include('connect.php');//เรียกใช้กcon
   $sql = "SELECT * FROM test"; //สร้างเก้บ
+  if(isset ($_GET['serach_click'])){
+    $sql = "SELECT * FROM test WHERE id LIKE '%{$_GET['search']}%' OR mname LIKE '%{$_GET['search']}%' ";
+    
+  }
   $result = $con->query($sql);//ดึงข้อมูล
 
  ?>
 <body>
+    <br>
+<form action="login.php" method="get"  style="width: 20rem; margin-left: 2%;" >
+ 
+    <div class="mb-3">
+    <input type="hiden" class="form-control" name="search"   id="search" placeholder="ค้นหา">
+    
+    </div>
+    <button type="submit" class="btn btn-primary" name="serach_click">ค้นหา</button>
+</form>
+
+<br>
+<a href="table_show.php" style=" margin-left: 2%;" ><button type="submit" class="btn btn-primary" >กลับหน้าหลัก</button></a>
+<br>
+<br>
 <table class="table">
         <thead>
           <tr>
@@ -41,6 +59,11 @@
             <td>
                 
                 
+            <div class="btn-group" role="group" aria-label="Basic example">
+            <a href="modify_from.php?id=<?php echo $row['id'];?>"><button  type="button" class="btn btn-warning">แก้ไข</button></a>
+                <a href="delete.php?id=<?php echo $row['id'];?>"><button  type="button" class="btn btn-danger">ลบ</button></a>
+                
+                
                 </div>
             </td>
          </tr>
@@ -48,6 +71,18 @@
 
           }
 ?>
+        </tbody>
+        </table>
+        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+        <a href="insert_from.php">
+          <button type="button" class="btn btn-success">เพิ่มรายการภาพยนต์</button>
+        </a>
+     </div>
+     <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+    <form action="login.php" method="post">
+     <button type="submit" name="logout" class="btn btn-success">ออกจากระบบ</button>
+    </form>
+    </div>
 <?php mysqli_close($con); ?>
 </body>
 </html>
