@@ -10,13 +10,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
 </head>
 <?php 
-  include('connect.php');//เรียกใช้กcon
-  $sql = "SELECT * FROM test"; //สร้างเก้บ
+  include('connect.php');
+  $sql = "SELECT * FROM test"; 
   if(isset ($_GET['serach_click'])){
     $sql = "SELECT * FROM test WHERE id LIKE '%{$_GET['search']}%' OR mname LIKE '%{$_GET['search']}%' ";
     
   }
-  $result = $con->query($sql);//ดึงข้อมูล
+  $result = $con->query($sql);
 
  ?>
 <body>
@@ -29,7 +29,6 @@
     </div>
     <button type="submit" class="btn btn-primary" name="serach_click">ค้นหา</button>
 </form>
-
 <br>
 <a href="table_show.php" style=" margin-left: 2%;" ><button type="submit" class="btn btn-primary" >กลับหน้าหลัก</button></a>
 <br>
